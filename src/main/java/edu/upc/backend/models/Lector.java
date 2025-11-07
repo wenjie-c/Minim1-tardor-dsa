@@ -41,12 +41,12 @@ public class Lector {
     }
 
     public String getNaixement() {
-        return naixement.format(DateTimeFormatter.ISO_LOCAL_DATE);
+        return naixement;
     }
 
     /* Format: 2007-12-03 */
     public void setNaixement(String naixement) {
-        this.naixement = LocalDate.parse(naixement);
+        this.naixement = naixement;
     }
 
     public String getDireccio() {
@@ -58,7 +58,7 @@ public class Lector {
     }
 
     String dni;
-    LocalDate naixement;
+    String naixement;
     String direccio;
 
 

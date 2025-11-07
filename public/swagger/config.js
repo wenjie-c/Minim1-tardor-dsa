@@ -4,7 +4,7 @@
 */
 
 config = {
-                 url: "http://localhost:8080/example/swagger.json",
+                 url: "http://localhost:8080/minim1/swagger.json",
                  dom_id: '#swagger-ui',
                  deepLinking: true,
                  presets: [

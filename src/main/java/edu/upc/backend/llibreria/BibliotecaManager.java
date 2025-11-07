@@ -59,8 +59,7 @@ public class BibliotecaManager implements Llibreria
 
     @Override
     public void catalogarLlibre() {
-        try
-        {
+
             Llibre top = llibres.pop();
             Llibre res = cataleg.get(top.getTitul());
 
@@ -72,10 +71,9 @@ public class BibliotecaManager implements Llibreria
             else
             {
                 res.incrementaQuantitat();
-                log.info(String.format("El llibre amb id %d ha incrementat en un exemplar.",top.getId()));
+                log.info(String.format("El llibre amb id %s ha incrementat en un exemplar.",top.getId()));
             }
-        }
-        catch (Exception e) {log.error(e.getMessage()); }
+
     }
 
     /* Format data: 2007-12-03 */

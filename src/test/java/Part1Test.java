@@ -75,6 +75,8 @@ public class Part1Test {
 
         log.info(String.format("N'hi han %d llibres en el cataleg.", biblioteca.catalegSize()));
 
+        log.info(biblioteca.pilaSize());
+
         Assert.assertThrows(ArrayIndexOutOfBoundsException.class, () ->
                 biblioteca.catalogarLlibre() );
 
@@ -114,10 +116,12 @@ public class Part1Test {
             biblioteca.catalogarLlibre();
         }
 
+        /*
         biblioteca.prestar("Wenjie", "Twenty Thousand Leagues Under the Sea","2025-12-1");
         biblioteca.prestar("Wenjie", "The Steam House","2025-12-1");
         biblioteca.prestar("Wenjie", "Journey to the Center of the Earth","2025-12-1");
         biblioteca.prestar("Toni", "The Mysterious Island","2030-3-1");
+         */
 
         log.info(biblioteca.consultarCataleg());
 

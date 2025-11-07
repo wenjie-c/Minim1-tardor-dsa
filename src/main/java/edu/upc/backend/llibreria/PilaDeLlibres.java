@@ -35,11 +35,12 @@ public class PilaDeLlibres {
 
     public Llibre pop()
     {
-        if(_db.size() == 0) throw new ArrayIndexOutOfBoundsException("No n'hi han més piles!");
+        //if(_db.size() == 0) throw new ArrayIndexOutOfBoundsException("No n'hi han més piles!");
         Stack<Llibre> a = _db.getLast();
-        if(a.size() == 0)
+        if(a.empty())
         {
             _db.removeLast();
+            if(_db.size() == 0) throw new ArrayIndexOutOfBoundsException("No n'hi han més piles!");
             Stack<Llibre> b = _db.getLast();
             Llibre l = b.pop();
             return l;

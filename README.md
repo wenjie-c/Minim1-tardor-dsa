@@ -1,3 +1,2 @@
 # Minim 1
-He pogut acabar la primera part, la clase façada es BibliotecaManager.
-Encara em falta acabar la part 2.
+La primera part i la segona part estan fetes. Pero amb posibles bug fixes per el futur.

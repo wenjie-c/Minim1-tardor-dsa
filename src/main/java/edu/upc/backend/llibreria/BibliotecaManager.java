@@ -139,9 +139,16 @@ public class BibliotecaManager implements Llibreria
         return buffer.toArray(new Prestec[buffer.size()]);
     }
     // --- Algunes funcions de facade per simplificar ---
-    public void prestar(String nomLector, String titulObra, String dataFinal) throws Exception {
+    public void prestarByNom(String nomLector, String titulObra, String dataFinal) throws Exception {
         String id = RandomUtils.getId();
         Lector l = lectors.getByNom(nomLector);
+        Llibre l2 = cataleg.get(titulObra);
+        prestar(id,l.getId(),titulObra,dataFinal);
+    }
+
+    public void prestar(String idLector, String titulObra, String dataFinal) throws Exception {
+        String id = RandomUtils.getId();
+        Lector l = lectors.get(idLector);
         Llibre l2 = cataleg.get(titulObra);
         prestar(id,l.getId(),titulObra,dataFinal);
     }

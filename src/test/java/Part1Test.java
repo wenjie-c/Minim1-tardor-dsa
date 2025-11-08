@@ -71,10 +71,10 @@ public class Part1Test {
             biblioteca.catalogarLlibre();
         }
 
-        biblioteca.prestar("Wenjie", "Twenty Thousand Leagues Under the Sea","2025-12-1");
-        biblioteca.prestar("Wenjie", "The Steam House","2025-12-1");
-        biblioteca.prestar("Wenjie", "Journey to the Center of the Earth","2025-12-1");
-        biblioteca.prestar("Toni", "The Mysterious Island","2030-3-1");
+        biblioteca.prestarByNom("Wenjie", "Twenty Thousand Leagues Under the Sea","2025-12-1");
+        biblioteca.prestarByNom("Wenjie", "The Steam House","2025-12-1");
+        biblioteca.prestarByNom("Wenjie", "Journey to the Center of the Earth","2025-12-1");
+        biblioteca.prestarByNom("Toni", "The Mysterious Island","2030-3-1");
 
         Prestec[] prestecs1 = biblioteca.getPrestects("aleatori1");
         Assert.assertEquals(3,prestecs1.length);

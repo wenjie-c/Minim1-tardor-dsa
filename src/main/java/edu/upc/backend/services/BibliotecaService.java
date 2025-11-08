@@ -70,9 +70,10 @@ public class BibliotecaService {
     @ApiOperation(value = "Catalogar llibres", notes = "Hola k ase")
     @ApiResponses(value = {
             @ApiResponse(code = 204, message = "Successful catalogued"),
-            @ApiResponse(code = 404, message = "Books not found", response = Exception.class)
+            @ApiResponse(code = 404, message = "Books not found")
     })
     @Path("/catalogar")
+    @Produces(MediaType.APPLICATION_JSON)
     public Response catalogar()
     {
         try {
@@ -87,19 +88,21 @@ public class BibliotecaService {
     }
 
     @POST
-    @ApiOperation(value = "Demanar un prestec", notes = "Els parámetres id, dataInici i tramit son ignorats, en canvi, el parámetre idLector corespon al nom del lector i  el camp idLlibre correspon al titul de la obra.")
+    @ApiOperation(value = "Demanar un prestec", notes = "Els parámetres id, dataInici i tramit son ignorats, en canvi, el camp idLlibre correspon al titul de la obra.")
     @ApiResponses(value = {
             @ApiResponse(code = 204, message = "Successfully added", response= Prestec.class),
             @ApiResponse(code = 500, message = "Validation Error")
 
     })
-    @Path("/")
+    @Path("/prestec")
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response newPrestec(Prestec p) throws NameNotFoundException {
 
         try
         {
             biblioteca.prestar(p.getIdLector(),p.getIdLlibre(),p.getDataFinal());
+            // alternativament es podria utilitzar biblioteca.prestarByNom(p.getIdLector(),p.getIdLlibre(),p.getDataFinal()) si ens envia el nom del lector en el camp del idLector, util per fer debug.
         }
         catch(Exception e){ return Response.status(500).entity(e.getMessage()).build();}
         return Response.status(204).build();
@@ -117,6 +120,7 @@ public class BibliotecaService {
     {
         try {
             Prestec[] p = biblioteca.getPrestects(id);
+            if(p.length == 0) throw  new NameNotFoundException("User not found!");
             GenericEntity<Prestec[]> entity = new GenericEntity<Prestec[]>(p) {};
             return Response.status(201).entity(entity).build();
         }
